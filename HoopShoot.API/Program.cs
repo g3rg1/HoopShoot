@@ -6,6 +6,7 @@ var startup = new Startup(builder.Configuration);
 
 // Add services to the container.
 startup.ConfigureServices(builder.Services);
+startup.SeedData(builder.Services);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

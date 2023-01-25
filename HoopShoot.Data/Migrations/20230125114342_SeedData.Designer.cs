@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HoopShoot.Data.Migrations
 {
     [DbContext(typeof(HoopShootDbContext))]
-    [Migration("20230125072022_Initial")]
-    partial class Initial
+    [Migration("20230125114342_SeedData")]
+    partial class SeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,20 +36,20 @@ namespace HoopShoot.Data.Migrations
                     b.Property<int?>("AwayTeamId")
                         .HasColumnType("int");
 
-                    b.Property<int>("AwayTeamScore")
-                        .HasColumnType("int");
+                    b.Property<short>("AwayTeamScore")
+                        .HasColumnType("smallint");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeletedOn")
+                    b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("HomeTeamId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HomeTeamScore")
-                        .HasColumnType("int");
+                    b.Property<short>("HomeTeamScore")
+                        .HasColumnType("smallint");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -77,7 +77,7 @@ namespace HoopShoot.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeletedOn")
+                    b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
@@ -92,6 +92,9 @@ namespace HoopShoot.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Teams");
                 });

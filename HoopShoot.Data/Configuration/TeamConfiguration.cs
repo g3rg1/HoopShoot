@@ -14,6 +14,10 @@ namespace HoopShoot.Data.Configuration
                .Property(f => f.Name)
                .HasMaxLength(MaxNameLenght)
                .IsRequired();
+
+            builder
+                .HasIndex(u => u.Name)
+                .IsUnique();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace HoopShoot.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -36,11 +36,11 @@ namespace HoopShoot.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HomeTeamId = table.Column<int>(type: "int", nullable: true),
                     AwayTeamId = table.Column<int>(type: "int", nullable: true),
-                    HomeTeamScore = table.Column<int>(type: "int", nullable: false),
-                    AwayTeamScore = table.Column<int>(type: "int", nullable: false),
+                    HomeTeamScore = table.Column<short>(type: "smallint", nullable: false),
+                    AwayTeamScore = table.Column<short>(type: "smallint", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -69,6 +69,12 @@ namespace HoopShoot.Data.Migrations
                 name: "IX_Matches_HomeTeamId",
                 table: "Matches",
                 column: "HomeTeamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Teams_Name",
+                table: "Teams",
+                column: "Name",
+                unique: true);
         }
 
         /// <inheritdoc />
