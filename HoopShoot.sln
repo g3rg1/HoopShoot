@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoopShoot.API", "HoopShoot.API\HoopShoot.API.csproj", "{12E9338A-35A9-4645-8484-A4CDF576958A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D} = {8CE45749-A3D2-4959-B6A5-DB7EC28D961D}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataLayer", "DataLayer", "{2A423FFC-2400-4458-B2CE-734B2746EEB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{A01F4A8A-2FE9-47FF-AE69-0CD9446D6DBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinesLayer", "BusinesLayer", "{AB5BCD15-CBD1-42D1-A4EE-D1E3ED632403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoopShoot.Data", "HoopShoot.Data\HoopShoot.Data.csproj", "{CFCE182F-42B1-4DF2-8125-5316FE278162}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D} = {8CE45749-A3D2-4959-B6A5-DB7EC28D961D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoopShoot.Models", "HoopShoot.Models\HoopShoot.Models.csproj", "{8CE45749-A3D2-4959-B6A5-DB7EC28D961D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12E9338A-35A9-4645-8484-A4CDF576958A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E9338A-35A9-4645-8484-A4CDF576958A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E9338A-35A9-4645-8484-A4CDF576958A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E9338A-35A9-4645-8484-A4CDF576958A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFCE182F-42B1-4DF2-8125-5316FE278162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFCE182F-42B1-4DF2-8125-5316FE278162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFCE182F-42B1-4DF2-8125-5316FE278162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFCE182F-42B1-4DF2-8125-5316FE278162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12E9338A-35A9-4645-8484-A4CDF576958A} = {A01F4A8A-2FE9-47FF-AE69-0CD9446D6DBB}
+		{CFCE182F-42B1-4DF2-8125-5316FE278162} = {2A423FFC-2400-4458-B2CE-734B2746EEB3}
+		{8CE45749-A3D2-4959-B6A5-DB7EC28D961D} = {2A423FFC-2400-4458-B2CE-734B2746EEB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06789806-3D33-4360-9F36-882BFF002455}
+	EndGlobalSection
+EndGlobal
