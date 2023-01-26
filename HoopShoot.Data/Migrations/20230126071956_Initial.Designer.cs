@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HoopShoot.Data.Migrations
 {
     [DbContext(typeof(HoopShootDbContext))]
-    [Migration("20230125114105_Initial")]
+    [Migration("20230126071956_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -39,23 +39,11 @@ namespace HoopShoot.Data.Migrations
                     b.Property<short>("AwayTeamScore")
                         .HasColumnType("smallint");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("HomeTeamId")
                         .HasColumnType("int");
 
                     b.Property<short>("HomeTeamScore")
                         .HasColumnType("smallint");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -74,22 +62,10 @@ namespace HoopShoot.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -103,13 +79,11 @@ namespace HoopShoot.Data.Migrations
                 {
                     b.HasOne("HoopShoot.Models.Team", "AwayTeam")
                         .WithMany()
-                        .HasForeignKey("AwayTeamId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("AwayTeamId");
 
                     b.HasOne("HoopShoot.Models.Team", "HomeTeam")
                         .WithMany()
-                        .HasForeignKey("HomeTeamId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("HomeTeamId");
 
                     b.Navigation("AwayTeam");
 

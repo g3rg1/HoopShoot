@@ -15,13 +15,6 @@ namespace HoopShoot.Data
         {
             modelBuilder.ApplyConfiguration<Team>(new TeamConfiguration());
 
-            // Disable cascade delete for FK since soft delete will be used
-            foreach (var relationship in modelBuilder.Model
-                    .GetEntityTypes()
-                    .SelectMany(e => e.GetForeignKeys()))
-            {
-                relationship.DeleteBehavior = DeleteBehavior.Restrict;
-            }
         }
 
         DbSet<Team> Teams { get; set; }

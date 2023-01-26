@@ -1,8 +1,11 @@
-﻿using HoopShoot.Data;
+﻿using AutoMapper;
+using HoopShoot.Data;
 using HoopShoot.Data.Contracts;
+using HoopShoot.Services.MappingProfiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Reflection;
 
 namespace HoopShoot.API
 {
@@ -21,6 +24,17 @@ namespace HoopShoot.API
                 options => options.UseSqlServer(Configuration.GetConnectionString("HoopShootDb")));
 
             services.AddScoped<IHoopShootDbContext, HoopShootDbContext>();
+
+            //register services using reflection.
+            this.RegisterServices(services);
+
+            //Automapper
+            AutoMapper.IConfigurationProvider config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+            services.AddSingleton(config);
+            services.AddScoped<IMapper, Mapper>();
         }
 
         public void SeedData(IServiceCollection services)
@@ -28,13 +42,26 @@ namespace HoopShoot.API
 
             var dbContext = services.BuildServiceProvider().GetService<IHoopShootDbContext>();
 
-            var databaseExists = dbContext.Database.GetService<IRelationalDatabaseCreator>().Exists();
-
-            if (!databaseExists)
+            if (dbContext!= null && !dbContext.Database.GetService<IRelationalDatabaseCreator>().Exists())
             {
                 dbContext.Database.Migrate();
                 dbContext.Database.ExecuteSqlRaw("spSeedTeamsData");
                 dbContext.Database.ExecuteSqlRaw("spSeedMatchesData");
+            }
+        }
+
+        public void RegisterServices(IServiceCollection services)
+        {
+            var servicesToRegister = Assembly
+                .Load("HoopShoot.Services")
+                .GetTypes()
+                .Where(x => x.IsClass && x.Name.Contains("Service"))
+                .Select(s => new { Interface = s.GetInterface($"I{s.Name}"), Implementation = s })
+                .ToList();
+
+            foreach (var type in servicesToRegister)
+            {
+                services.AddScoped(type.Interface, type.Implementation);
             }
         }
     }
