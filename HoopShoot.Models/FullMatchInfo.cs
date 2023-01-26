@@ -1,6 +1,6 @@
-﻿namespace HoopShoot.DTO
+﻿namespace HoopShoot.Models
 {
-    public class MatchDto
+    public class FullMatchInfo
     {
         public int Id { get; set; }
         public int HomeTeamId { get; set; }

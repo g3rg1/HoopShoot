@@ -19,5 +19,6 @@ namespace HoopShoot.Data
 
         DbSet<Team> Teams { get; set; }
         DbSet<Match> Matches { get; set; }
+        DbSet<FullMatchInfo> fullMatchInfos { get; set; }
     }
 }

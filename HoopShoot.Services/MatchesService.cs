@@ -20,7 +20,7 @@ namespace HoopShoot.Services
 
         public async Task<List<MatchDto>> GetAllMatches()
         {
-            var result = await this.dbContext.Set<Match>()
+            var result = await this.dbContext.Set<FullMatchInfo>()
                 .FromSqlRaw("EXEC spGetAllMatches").ToListAsync();
 
             return this.mapper.Map<List<MatchDto>>(result);

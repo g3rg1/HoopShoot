@@ -21,7 +21,19 @@ namespace HoopShoot.Data.Migrations
 
             var getAllMatchesStoredProcedure = $@"CREATE OR ALTER PROCEDURE {GetAllMatchesStoredProcedureName}
                                                 AS
-                                                SELECT * FROM Matches";
+                                                SELECT 
+                                                	Matches.Id,
+                                                	Matches.HomeTeamId,
+                                                	Home.Name AS HomeTeam,
+                                                	Matches.AwayTeamId,
+                                                	Away.Name AS AwayTeam,
+                                                	Matches.AwayTeamScore,
+                                                	Matches.HomeTeamScore 
+                                                FROM Matches
+                                                JOIN Teams AS Home 
+                                                	ON Home.Id=Matches.HomeTeamId
+                                                JOIN Teams AS Away
+                                                	ON Away.Id=Matches.AwayTeamId";
 
             migrationBuilder.Sql(getAllMatchesStoredProcedure);
         }
