@@ -6,6 +6,8 @@ var startup = new Startup(builder.Configuration);
 
 // Add services to the container.
 startup.ConfigureServices(builder.Services);
+
+//Seed DataBase with data
 startup.SeedData(builder.Services);
 
 builder.Services.AddControllers();

@@ -11,6 +11,8 @@ namespace HoopShoot.Services.MappingProfiles
             CreateMap<Team, TeamDto>();
 
             CreateMap<FullMatchInfo, MatchDto>();
+
+            CreateMap<FullMatchInfoQuery, MatchQueryDto>();
         }
     }
 }

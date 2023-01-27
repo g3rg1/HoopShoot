@@ -11,6 +11,9 @@ namespace HoopShoot.Services
     {
         private readonly IHoopShootDbContext dbContext;
         private readonly IMapper mapper;
+        private const int HighlightMatchCount = 1;
+        private const string SpGetAllMatches = "spGetAllMatches";
+        private const string SpGetHighlightMatch = "spGetHighlightMatch";
 
         public MatchesService(IHoopShootDbContext dbContext, IMapper mapper)
         {
@@ -21,9 +24,19 @@ namespace HoopShoot.Services
         public async Task<List<MatchDto>> GetAllMatches()
         {
             var result = await this.dbContext.Set<FullMatchInfo>()
-                .FromSqlRaw("EXEC spGetAllMatches").ToListAsync();
+                .FromSqlRaw($"EXEC {SpGetAllMatches}").ToListAsync();
 
             return this.mapper.Map<List<MatchDto>>(result);
+        }
+
+        public async Task<MatchDto> GetHighlightMatch()
+        {
+            var sqlParam = $"@Count={HighlightMatchCount}";
+            
+            var result = await this.dbContext.Set<FullMatchInfo>()
+                .FromSqlRaw($"EXEC {SpGetHighlightMatch} {sqlParam}").ToListAsync();
+
+            return this.mapper.Map<MatchDto>(result.FirstOrDefault());
         }
     }
 }

@@ -14,9 +14,16 @@ namespace HoopShoot.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPlaylist()
+        public async Task<IActionResult> GetAllMatches()
         {
             return new OkObjectResult(await this.matchesService.GetAllMatches());
+        }
+
+        [HttpGet]
+        [Route("highlight")]
+        public async Task<IActionResult> GetHighlightMatch()
+        {
+            return new OkObjectResult(await this.matchesService.GetHighlightMatch());
         }
     }
 }

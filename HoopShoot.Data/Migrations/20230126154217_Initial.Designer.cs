@@ -4,6 +4,7 @@ using HoopShoot.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HoopShoot.Data.Migrations
 {
     [DbContext(typeof(HoopShootDbContext))]
-    partial class HoopShootDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230126154217_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,37 +47,6 @@ namespace HoopShoot.Data.Migrations
 
                     b.Property<int>("Id")
                         .HasColumnType("int");
-
-                    b.ToTable((string)null);
-
-                    b.ToView(null, (string)null);
-                });
-
-            modelBuilder.Entity("HoopShoot.Models.FullMatchInfoQuery", b =>
-                {
-                    b.Property<string>("AwayTeam")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("AwayTeamId")
-                        .HasColumnType("int");
-
-                    b.Property<short>("AwayTeamScore")
-                        .HasColumnType("smallint");
-
-                    b.Property<string>("HomeTeam")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("HomeTeamId")
-                        .HasColumnType("int");
-
-                    b.Property<short>("HomeTeamScore")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<short>("QueryScore")
-                        .HasColumnType("smallint");
 
                     b.ToTable((string)null);
 

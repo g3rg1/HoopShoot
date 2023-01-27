@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HoopShoot.Data.Migrations
 {
     [DbContext(typeof(HoopShootDbContext))]
-    [Migration("20230126072349_SeedData")]
-    partial class SeedData
+    [Migration("20230126154657_CreateGetStoredProcedures")]
+    partial class CreateGetStoredProcedures
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,34 @@ namespace HoopShoot.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("HoopShoot.Models.FullMatchInfo", b =>
+                {
+                    b.Property<string>("AwayTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AwayTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<short>("AwayTeamScore")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("HomeTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HomeTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<short>("HomeTeamScore")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.ToTable((string)null);
+
+                    b.ToView(null, (string)null);
+                });
 
             modelBuilder.Entity("HoopShoot.Models.Match", b =>
                 {

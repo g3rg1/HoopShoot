@@ -45,8 +45,8 @@ namespace HoopShoot.API
             if (dbContext!= null && !dbContext.Database.GetService<IRelationalDatabaseCreator>().Exists())
             {
                 dbContext.Database.Migrate();
-                dbContext.Database.ExecuteSqlRaw("spSeedTeamsData");
-                dbContext.Database.ExecuteSqlRaw("spSeedMatchesData");
+                dbContext.Database.ExecuteSqlRaw("EXEC spSeedTeamsData");
+                dbContext.Database.ExecuteSqlRaw("EXEC spSeedMatchesData");
             }
         }
 

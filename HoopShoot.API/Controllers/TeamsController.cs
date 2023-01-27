@@ -14,9 +14,23 @@ namespace HoopShoot.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPlaylist()
+        public async Task<IActionResult> GetAllTeams()
         {
             return new OkObjectResult(await this.teamsService.GetAllTeams());
+        }
+
+        [HttpGet]
+        [Route("topDefensive")]
+        public async Task<IActionResult> GetTopBestDefensiveTeams()
+        {
+            return new OkObjectResult(await this.teamsService.GetTopBestDefensiveTeams());
+        }
+
+        [HttpGet]
+        [Route("topOffensive")]
+        public async Task<IActionResult> GetTopBestOffensiveTeams()
+        {
+            return new OkObjectResult(await this.teamsService.GetTopBestOffensiveTeams());
         }
     }
 }

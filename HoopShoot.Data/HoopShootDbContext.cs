@@ -14,11 +14,13 @@ namespace HoopShoot.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration<Team>(new TeamConfiguration());
-
+            modelBuilder.ApplyConfiguration<FullMatchInfo>(new FullMatchInfoConfiguration());
+            modelBuilder.ApplyConfiguration<FullMatchInfoQuery>(new FullMatchInfoQueryConfiguration());
         }
 
         DbSet<Team> Teams { get; set; }
         DbSet<Match> Matches { get; set; }
         DbSet<FullMatchInfo> fullMatchInfos { get; set; }
+        DbSet<FullMatchInfoQuery> fullMatchInfoQuerys { get; set; }
     }
 }

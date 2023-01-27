@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HoopShoot.Data.Configuration
 {
-    public class FullMatchInfoConfiguration : IEntityTypeConfiguration<FullMatchInfo>
+    public class FullMatchInfoQueryConfiguration : IEntityTypeConfiguration<FullMatchInfoQuery>
     {
-        public void Configure(EntityTypeBuilder<FullMatchInfo> builder)
+        public void Configure(EntityTypeBuilder<FullMatchInfoQuery> builder)
         {
             builder.HasNoKey().ToView(null);
         }

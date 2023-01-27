@@ -26,4 +26,8 @@
     <ProjectReference Include="..\HoopShoot.Models\HoopShoot.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
