@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { AllTeamsPageComponent } from './pages/all-teams-page/all-teams-page.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AllTeamsPageComponent } from './pages/all-teams-page/all-teams-page.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

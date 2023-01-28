@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColDef, FirstDataRenderedEvent, GridApi } from 'ag-grid-community';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { TeamsService } from 'src/app/core/services/teams.service';
+import { Team } from 'src/app/shared/models/team.model';
 
 @Component({
   selector: 'app-all-teams-page',
@@ -6,10 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-teams-page.component.css']
 })
 export class AllTeamsPageComponent implements OnInit {
+    notifier = new Subject<void>;
+    teams!: Team[];
+    rowData$!: Observable<Team[]>;
+    columnDefs: ColDef[] = [
+      { field: 'name' }
+    ];
+    defaultColDef: ColDef = {
+      sortable: true,
+      filter: true,
+    };
 
-  constructor() { }
+    @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
+  
+    constructor(private teamsService: TeamsService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+      this.rowData$ = this.teamsService.getTeams();
+    }
 
+    onFirstDataRendered(params: FirstDataRenderedEvent) {
+      params.api.sizeColumnsToFit();
+    }
 }

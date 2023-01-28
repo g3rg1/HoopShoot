@@ -1,3 +1,7 @@
+@import "bootstrap/dist/css/bootstrap.css";
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
 html,
 body {
   height: 100%;
@@ -84,4 +88,8 @@ h4 {
 
 .ag-grid {
   height: 300px;
+}
+
+.ag-header-cell-label {
+  justify-content: center;
 }
