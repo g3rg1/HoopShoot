@@ -7,13 +7,15 @@ import { LayoutComponent } from './shared/layout/layout.component';
 import { AllTeamsPageComponent } from './pages/all-teams-page/all-teams-page.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { MatchResultsPageComponent } from './pages/match-results-page/match-results-page.component';
+import { TopOffensiveTeamsPageComponent } from './pages/top-offensive-teams-page/top-offensive-teams-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     AllTeamsPageComponent,
-    MatchResultsPageComponent
+    MatchResultsPageComponent,
+    TopOffensiveTeamsPageComponent,
   ],
   imports: [
     BrowserModule,
