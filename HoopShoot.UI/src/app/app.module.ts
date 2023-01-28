@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { AllTeamsPageComponent } from './pages/all-teams-page/all-teams-page.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { MatchResultsPageComponent } from './pages/match-results-page/match-results-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    AllTeamsPageComponent
+    AllTeamsPageComponent,
+    MatchResultsPageComponent
   ],
   imports: [
     BrowserModule,

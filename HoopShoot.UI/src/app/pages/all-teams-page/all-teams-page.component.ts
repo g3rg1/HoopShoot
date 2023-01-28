@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, FirstDataRenderedEvent, GridApi } from 'ag-grid-community';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ColDef, FirstDataRenderedEvent } from 'ag-grid-community';
+import { Observable} from 'rxjs';
 import { TeamsService } from 'src/app/core/services/teams.service';
 import { Team } from 'src/app/shared/models/team.model';
 
@@ -11,8 +10,6 @@ import { Team } from 'src/app/shared/models/team.model';
   styleUrls: ['./all-teams-page.component.css']
 })
 export class AllTeamsPageComponent implements OnInit {
-    notifier = new Subject<void>;
-    teams!: Team[];
     rowData$!: Observable<Team[]>;
     columnDefs: ColDef[] = [
       { field: 'name' }
@@ -22,8 +19,6 @@ export class AllTeamsPageComponent implements OnInit {
       filter: true,
     };
 
-    @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
-  
     constructor(private teamsService: TeamsService) { }
 
     ngOnInit(): void {
