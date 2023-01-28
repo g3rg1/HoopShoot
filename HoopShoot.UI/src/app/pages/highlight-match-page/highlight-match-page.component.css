@@ -1,0 +1,12 @@
+.table {
+  width: 50%;
+  margin: auto;
+}
+tr {
+  border: #fff;
+}
+td {
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: #fff;
+}

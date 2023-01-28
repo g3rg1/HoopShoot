@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { MatchesService } from 'src/app/core/services/matches.service';
+import { Match } from 'src/app/shared/models/match.model';
 
 @Component({
   selector: 'app-highlight-match-page',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./highlight-match-page.component.css']
 })
 export class HighlightMatchPageComponent implements OnInit {
-
-  constructor() { }
+  notifier = new Subject<void>;
+  public highlightMatch!: Match;
+  public highlightString: string = "";
+  constructor(private matchesService: MatchesService) { }
 
   ngOnInit(): void {
+    this.matchesService.getHighLightMatch()
+    .pipe(takeUntil(this.notifier))
+    .subscribe(match => {
+      this.highlightMatch = match;
+      this.highlightString = `${match.homeTeam} - ${match.awayTeam} ${match.homeTeamScore}:${match.awayTeamScore}`;
+    });
   }
 
 }
