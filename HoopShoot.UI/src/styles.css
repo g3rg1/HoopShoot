@@ -10,6 +10,7 @@ body {
   font: 400 15px/1.8 Lato, sans-serif;
   color: #777;
 }
+
 h3,
 h4 {
   margin: 10px 0 30px 0;
@@ -17,6 +18,7 @@ h4 {
   font-size: 20px;
   color: #111;
 }
+
 .container {
   padding: 80px 120px;
 }
@@ -25,9 +27,11 @@ h4 {
   background: #2d2d30;
   color: #bdbdbd;
 }
+
 .bg-1 h3 {
   color: #fff;
 }
+
 .bg-1 p {
   font-style: italic;
 }
@@ -41,24 +45,30 @@ h4 {
   letter-spacing: 4px;
   opacity: 0.9;
 }
+
 .navbar li a,
 .navbar {
   color: #d5d5d5 !important;
 }
+
 .navbar-nav li a:hover {
   color: #fff !important;
 }
+
 .navbar-nav li.active a {
   color: #fff !important;
   background-color: #29292c !important;
 }
+
 .navbar-default .navbar-toggle {
   border-color: transparent;
 }
+
 .open .dropdown-toggle {
   color: #fff;
   background-color: #555 !important;
 }
+
 .dropdown-menu li a {
   color: #000 !important;
 }

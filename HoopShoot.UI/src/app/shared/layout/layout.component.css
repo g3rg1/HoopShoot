@@ -2,9 +2,11 @@
   display: flex;
   float: right;
 }
+
 .nav > li > a:hover {
   background-color: #545a5f;
 }
+
 li {
   text-transform: uppercase;
 }
