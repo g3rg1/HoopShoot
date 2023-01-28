@@ -8,6 +8,8 @@ import { AllTeamsPageComponent } from './pages/all-teams-page/all-teams-page.com
 import { AgGridModule } from 'ag-grid-angular';
 import { MatchResultsPageComponent } from './pages/match-results-page/match-results-page.component';
 import { TopOffensiveTeamsPageComponent } from './pages/top-offensive-teams-page/top-offensive-teams-page.component';
+import { TopDefensiveTeamsPageComponent } from './pages/top-defensive-teams-page/top-defensive-teams-page.component';
+import { HighlightMatchPageComponent } from './pages/highlight-match-page/highlight-match-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { TopOffensiveTeamsPageComponent } from './pages/top-offensive-teams-page
     AllTeamsPageComponent,
     MatchResultsPageComponent,
     TopOffensiveTeamsPageComponent,
+    TopDefensiveTeamsPageComponent,
+    HighlightMatchPageComponent,
   ],
   imports: [
     BrowserModule,
