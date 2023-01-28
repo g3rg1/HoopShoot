@@ -24,6 +24,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Cross Origin Resource Sharing
+app.UseCors(
+    x =>
+        x.AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(origin => true) // allow any origin
+            .AllowCredentials()
+);
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

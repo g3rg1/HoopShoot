@@ -1,12 +1,12 @@
 export class MatchQuery {
     constructor(
-        public QueryScore: number,
+        public queryScore: number,
         public Id: number,
-        public HomeTeamId: number,
-        public HomeTeam: string,
-        public AwayTeamId: number,
-        public AwayTeam: string,
-        public AwayTeamScore: number, 
-        public HomeTeamScore:number) {
+        public homeTeamId: number,
+        public homeTeam: string,
+        public awayTeamId: number,
+        public awayTeam: string,
+        public awayTeamScore: number, 
+        public homeTeamScore:number) {
     }
 }
