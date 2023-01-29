@@ -10,8 +10,7 @@ export class MatchesService {
 
   private apiPath: string = 'https://localhost:7167/api/matches';
 
-  constructor(private httpClient: HttpClient) { 
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getMatches(): Observable<Match[]> {
     return this.httpClient.get<Match[]>(`${this.apiPath}`);
