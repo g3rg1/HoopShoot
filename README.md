@@ -7,7 +7,7 @@ Web App that shows a basketball league results.
 Technologies used to create the backend are: .NET, EntityFramework, MSSQL Server and Automapper.
 
 UML of the DB relations:
-![ALT](/Images/hoopshoot-uml-tables.png)
+![ALT](./Images/hoopshoot-uml-tables.png)
 
 # HoopShootUI
 
