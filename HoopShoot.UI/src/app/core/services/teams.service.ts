@@ -8,11 +8,9 @@ import { MatchQuery } from 'src/app/shared/models/matchQuery.model';
   providedIn: 'root'
 })
 export class TeamsService {
-
   private apiPath: string = 'https://localhost:7167/api/teams';
 
-  constructor(private httpClient: HttpClient) { 
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getTeams(): Observable<Team[]> {
     return this.httpClient.get<Team[]>(`${this.apiPath}`);

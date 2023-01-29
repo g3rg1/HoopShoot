@@ -10,8 +10,7 @@ import { Match } from 'src/app/shared/models/match.model';
 })
 export class HighlightMatchPageComponent implements OnInit {
   notifier = new Subject<void>;
-  public highlightMatch!: Match;
-  public highlightString: string = "";
+  highlightMatch!: Match;
   constructor(private matchesService: MatchesService) { }
 
   ngOnInit(): void {
@@ -19,8 +18,6 @@ export class HighlightMatchPageComponent implements OnInit {
     .pipe(takeUntil(this.notifier))
     .subscribe(match => {
       this.highlightMatch = match;
-      this.highlightString = `${match.homeTeam} - ${match.awayTeam} ${match.homeTeamScore}:${match.awayTeamScore}`;
     });
   }
-
 }

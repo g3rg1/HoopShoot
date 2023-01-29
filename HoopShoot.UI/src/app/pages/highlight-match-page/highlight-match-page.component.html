@@ -1,19 +1,21 @@
 <div class="container bg-1">
     <h3 class="text-center">HIGHTLIGHT MATCH</h3>
     <br>
-    <div class="table">
-        <table *ngIf="highlightMatch">
-            <tr>
-                <td>HOME TEAM</td>
-                <td>AWAY TEAM</td>
-                <td>SCORE</td>
-            </tr>
-            <tr>
-                <td>{{highlightMatch.homeTeam}}</td>
-                <td>{{highlightMatch.awayTeam}}</td>
-                <td>{{highlightMatch.awayTeamScore}} : {{highlightMatch.homeTeamScore}}</td>
-            </tr>
-        </table>
+
+    
+    <table class="table" *ngIf="highlightMatch">
+        <tr>
+            <td>HOME TEAM</td>
+            <td>AWAY TEAM</td>
+            <td>SCORE</td>
+        </tr>
+        <tr>
+            <td>{{highlightMatch.homeTeam}}</td>
+            <td>{{highlightMatch.awayTeam}}</td>
+            <td>{{highlightMatch.awayTeamScore}} : {{highlightMatch.homeTeamScore}}</td>
+        </tr>
+    </table>
+    <div >
     </div>
 </div>
   

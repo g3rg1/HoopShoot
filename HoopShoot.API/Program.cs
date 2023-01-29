@@ -29,7 +29,7 @@ app.UseCors(
     x =>
         x.AllowAnyMethod()
             .AllowAnyHeader()
-            .SetIsOriginAllowed(origin => true) // allow any origin
+            .SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost")
             .AllowCredentials()
 );
 
