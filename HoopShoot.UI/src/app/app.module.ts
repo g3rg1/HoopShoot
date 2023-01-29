@@ -10,6 +10,7 @@ import { MatchResultsPageComponent } from './pages/match-results-page/match-resu
 import { TopOffensiveTeamsPageComponent } from './pages/top-offensive-teams-page/top-offensive-teams-page.component';
 import { TopDefensiveTeamsPageComponent } from './pages/top-defensive-teams-page/top-defensive-teams-page.component';
 import { HighlightMatchPageComponent } from './pages/highlight-match-page/highlight-match-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HighlightMatchPageComponent } from './pages/highlight-match-page/highli
     TopOffensiveTeamsPageComponent,
     TopDefensiveTeamsPageComponent,
     HighlightMatchPageComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
