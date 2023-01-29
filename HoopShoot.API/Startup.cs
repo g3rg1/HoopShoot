@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HoopShoot.API.Utility;
 using HoopShoot.Data;
 using HoopShoot.Data.Contracts;
 using HoopShoot.Services.MappingProfiles;
@@ -27,6 +28,12 @@ namespace HoopShoot.API
 
             //register services using reflection.
             this.RegisterServices(services);
+
+            //register ExceptionFilter
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(GlobalExceptionFilter));
+            });
 
             //Automapper
             AutoMapper.IConfigurationProvider config = new MapperConfiguration(cfg =>
