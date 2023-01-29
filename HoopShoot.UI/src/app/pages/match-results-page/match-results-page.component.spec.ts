@@ -1,20 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClient } from '@angular/common/http';
+import { MatchesService } from 'src/app/core/services/matches.service';
 import { MatchResultsPageComponent } from './match-results-page.component';
 
 describe('MatchResultsPageComponent', () => {
+  let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let service: MatchesService;
   let component: MatchResultsPageComponent;
-  let fixture: ComponentFixture<MatchResultsPageComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ MatchResultsPageComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(MatchResultsPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = new MatchesService(httpClientSpy);
+    component = new MatchResultsPageComponent(service);
   });
 
   it('should create', () => {

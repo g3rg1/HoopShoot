@@ -1,20 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { TeamsService } from 'src/app/core/services/teams.service';
 
 import { TopOffensiveTeamsPageComponent } from './top-offensive-teams-page.component';
 
 describe('TopOffensiveTeamsPageComponent', () => {
+  let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let service: TeamsService;
   let component: TopOffensiveTeamsPageComponent;
-  let fixture: ComponentFixture<TopOffensiveTeamsPageComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TopOffensiveTeamsPageComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(TopOffensiveTeamsPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = new TeamsService(httpClientSpy);
+    component = new TopOffensiveTeamsPageComponent(service);
   });
 
   it('should create', () => {

@@ -1,20 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClient } from '@angular/common/http';
+import { MatchesService } from 'src/app/core/services/matches.service';
 import { HighlightMatchPageComponent } from './highlight-match-page.component';
 
 describe('HighlightMatchPageComponent', () => {
+  let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let service: MatchesService;
   let component: HighlightMatchPageComponent;
-  let fixture: ComponentFixture<HighlightMatchPageComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HighlightMatchPageComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(HighlightMatchPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = new MatchesService(httpClientSpy);
+    component = new HighlightMatchPageComponent(service);
   });
 
   it('should create', () => {
